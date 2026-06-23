@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مرحبًا بكم في عيادة أ.د. على قطب بعيادة ميدان المحمكة</title>
+    
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(145deg, #e3f2fd, #bbdefb); /* Gradient background */
+            color: #333;
+            text-align: center;
+            padding: 50px;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            margin: auto;
+            border: 2px solid #0072ff;
+        }
+        h1 {
+            font-size: 32px;
+            font-weight: bold;
+            color: #0072ff;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        p {
+            font-size: 22px;
+            color: #444;
+            margin: 15px 0;
+        }
+        .button, .contact-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            margin: 15px auto;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+        .contact-button {
+            background: linear-gradient(145deg, #0072ff, #0056b3);
+            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            border: none;
+        }
+        .contact-button:hover {
+            background: linear-gradient(145deg, #0056b3, #0072ff);
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>مرحبًا بكم في عيادة أ.د. على قطب</h1> 
+ <h1> عيادة القاهرة ميدان المحكمة</h1>
+        
+    
+        
+        <a href="https://script.google.com/macros/s/AKfycbyQJc5z3lW2PHEnX-3TMMQTYJQ2_2JM5vLaePhZfNTIJz8CpBKaoph84q0R4rtyWtc/exec" class="contact-button">
+            لستة الحجز عيادة القاهرة
+        </a>
+    </div>
+
+    <script>
+        function getNextFriday() {
+            let today = new Date();
+            let daysUntilFriday = (5 - today.getDay() + 7) % 7;
+            daysUntilFriday = daysUntilFriday === 0 ? 7 : daysUntilFriday;
+            let nextFriday = new Date();
+            nextFriday.setDate(today.getDate() + daysUntilFriday);
+            
+            let options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            document.getElementById('friday-date').innerText = nextFriday.toLocaleDateString('ar-EG', options);
+        }
+
+        getNextFriday();
+    </script>
+</body>
+</html>
