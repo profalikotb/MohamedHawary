@@ -1,97 +1,408 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مرحبًا بكم في عيادة أ.د. على قطب بعيادة ميدان المحمكة</title>
-    
+
+    <title>عيادات أ.د. علي قطب</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
     <style>
+        :root {
+            --navy: #0b2545;
+            --text: #152238;
+            --muted: #64748b;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Cairo', sans-serif;
-            background: linear-gradient(145deg, #e3f2fd, #bbdefb); /* Gradient background */
-            color: #333;
-            text-align: center;
-            padding: 50px;
             margin: 0;
+            min-height: 100vh;
+            font-family: "Cairo", Arial, sans-serif;
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(0, 180, 216, 0.18),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(245, 158, 11, 0.14),
+                    transparent 32%
+                ),
+                linear-gradient(
+                    135deg,
+                    #edf7ff 0%,
+                    #f8fbff 45%,
+                    #fff8eb 100%
+                );
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 30px 15px;
         }
+
         .container {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
-            max-width: 600px;
-            margin: auto;
-            border: 2px solid #0072ff;
+            width: 100%;
+            max-width: 720px;
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 28px;
+            overflow: hidden;
+
+            box-shadow:
+                0 25px 70px rgba(15, 35, 60, 0.18);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            animation: fadeIn 0.65s ease;
         }
-        h1 {
-            font-size: 32px;
-            font-weight: bold;
-            color: #0072ff;
-            margin-bottom: 20px;
+
+        .header {
+            position: relative;
+            padding: 38px 25px 32px;
+            color: white;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #081f3d 0%,
+                    #0b4f83 55%,
+                    #0077b6 100%
+                );
+
+            overflow: hidden;
         }
-        h2 {
-            font-size: 28px;
-            color: #333;
-            margin-bottom: 15px;
-            font-weight: bold;
+
+        .header::before {
+            content: "";
+            position: absolute;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.07);
+            top: -120px;
+            right: -80px;
         }
-        p {
-            font-size: 22px;
-            color: #444;
-            margin: 15px 0;
+
+        .header::after {
+            content: "";
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background: rgba(0, 180, 216, 0.18);
+            bottom: -100px;
+            left: -60px;
         }
-        .button, .contact-button {
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .medical-icon {
+            width: 72px;
+            height: 72px;
+            margin: 0 auto 16px;
+
+            border-radius: 22px;
+
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 80%;
-            margin: 15px auto;
-            padding: 15px;
-            border-radius: 50px;
-            font-size: 20px;
-            font-weight: bold;
-            color: white;
+
+            font-size: 38px;
+
+            background: rgba(255, 255, 255, 0.14);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+
+            backdrop-filter: blur(8px);
+        }
+
+        .header h1 {
+            margin: 0 0 5px;
+            font-size: clamp(26px, 5vw, 38px);
+            font-weight: 900;
+            line-height: 1.4;
+        }
+
+        .header h2 {
+            margin: 0;
+            font-size: clamp(18px, 3.6vw, 24px);
+            font-weight: 600;
+            color: #dff6ff;
+        }
+
+        .content {
+            padding: 34px 38px 40px;
+            text-align: center;
+        }
+
+        .welcome {
+            margin: 0 0 24px;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--navy);
+        }
+
+        .clinic-button {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            text-align: right;
+            gap: 18px;
+
+            width: 100%;
+            min-height: 92px;
+
+            padding: 16px 22px;
+            margin: 16px 0;
+
+            border-radius: 20px;
+
             text-decoration: none;
-            transition: 0.3s;
+            color: white;
+
+            overflow: hidden;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                filter 0.3s ease;
+
+            box-shadow:
+                0 12px 28px rgba(0, 0, 0, 0.12);
         }
-        .contact-button {
-            background: linear-gradient(145deg, #0072ff, #0056b3);
-            box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.3);
-            cursor: pointer;
-            border: none;
+
+        .clinic-button::after {
+            content: "←";
+            position: absolute;
+            left: 22px;
+            font-size: 27px;
+            font-weight: 900;
+            transition: transform 0.3s ease;
         }
-        .contact-button:hover {
-            background: linear-gradient(145deg, #0056b3, #0072ff);
-            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.4);
-            transform: scale(1.05);
+
+        .clinic-button:hover {
+            transform: translateY(-4px);
+
+            box-shadow:
+                0 18px 38px rgba(0, 0, 0, 0.18);
+
+            filter: brightness(1.04);
+        }
+
+        .clinic-button:hover::after {
+            transform: translateX(-6px);
+        }
+
+        .clinic-button:active {
+            transform: scale(0.98);
+        }
+
+        .cairo {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0066b3,
+                    #00a6cf
+                );
+        }
+
+        .heliopolis {
+            background:
+                linear-gradient(
+                    135deg,
+                    #d97706,
+                    #f59e0b
+                );
+        }
+
+        .clinic-icon {
+            flex: 0 0 54px;
+            height: 54px;
+            width: 54px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 16px;
+            font-size: 27px;
+
+            background: rgba(255, 255, 255, 0.20);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+        }
+
+        .clinic-info {
+            padding-left: 40px;
+        }
+
+        .clinic-name {
+            display: block;
+            font-size: 20px;
+            font-weight: 900;
+            margin-bottom: 3px;
+        }
+
+        .clinic-action {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.92;
+        }
+
+        .footer {
+            padding: 17px 20px;
+            text-align: center;
+            color: #708090;
+            font-size: 13px;
+            background: #f8fafc;
+            border-top: 1px solid #edf2f7;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px 10px;
+            }
+
+            .container {
+                border-radius: 22px;
+            }
+
+            .header {
+                padding: 30px 18px 28px;
+            }
+
+            .content {
+                padding: 28px 18px 30px;
+            }
+
+            .welcome {
+                font-size: 21px;
+                margin-bottom: 20px;
+            }
+
+            .clinic-button {
+                padding: 15px;
+                min-height: 88px;
+            }
+
+            .clinic-name {
+                font-size: 18px;
+            }
+
+            .clinic-action {
+                font-size: 13px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
     </style>
 </head>
+
 <body>
-    <div class="container">
-        <h1>مرحبًا بكم في عيادة أ.د. على قطب</h1> 
- <h1> عيادة القاهرة ميدان المحكمة</h1>
-        
-    
-        
-        <a href="https://script.google.com/macros/s/AKfycbyQJc5z3lW2PHEnX-3TMMQTYJQ2_2JM5vLaePhZfNTIJz8CpBKaoph84q0R4rtyWtc/exec" class="contact-button">
-            لستة الحجز عيادة القاهرة
+
+<div class="container">
+
+    <header class="header">
+        <div class="header-content">
+
+            <div class="medical-icon">
+                ⚕
+            </div>
+
+            <h1>
+                أ.د. علي قطب
+            </h1>
+
+            <h2>
+                أستاذ جراحة المخ والأعصاب
+            </h2>
+
+        </div>
+    </header>
+
+    <main class="content">
+
+        <div class="welcome">
+            مرحبًا بكم في عيادات أ.د. علي قطب
+        </div>
+
+        <a
+            href="https://script.google.com/macros/s/AKfycbyQJc5z3lW2PHEnX-3TMMQTYJQ2_2JM5vLaePhZfNTIJz8CpBKaoph84q0R4rtyWtc/exec"
+            class="clinic-button cairo"
+            target="_blank"
+            rel="noopener">
+
+            <div class="clinic-icon">
+                📋
+            </div>
+
+            <div class="clinic-info">
+                <span class="clinic-name">
+                    لستة حجز عيادة القاهرة – ميدان المحكمة
+                </span>
+
+                <span class="clinic-action">
+                    عرض قائمة الحجز والمواعيد
+                </span>
+            </div>
+
         </a>
-    </div>
 
-    <script>
-        function getNextFriday() {
-            let today = new Date();
-            let daysUntilFriday = (5 - today.getDay() + 7) % 7;
-            daysUntilFriday = daysUntilFriday === 0 ? 7 : daysUntilFriday;
-            let nextFriday = new Date();
-            nextFriday.setDate(today.getDate() + daysUntilFriday);
-            
-            let options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
-            document.getElementById('friday-date').innerText = nextFriday.toLocaleDateString('ar-EG', options);
-        }
+        <a
+            href="https://script.google.com/macros/s/AKfycbxUExheHU0M_wObDfnhOGnb3EyqWFmwmktJOvCVzIqg9eIrsRmVImVZTSYyOwef2cM5/exec?clinic=%D8%B9%D9%8A%D8%A7%D8%AF%D8%A9%20%D8%A7%D9%84%D9%85%D8%AD%D9%83%D9%85%D8%A9"
+            class="clinic-button heliopolis"
+            target="_blank"
+            rel="noopener">
 
-        getNextFriday();
-    </script>
+            <div class="clinic-icon">
+                🗓️
+            </div>
+
+            <div class="clinic-info">
+                <span class="clinic-name">
+                    صفحة حجز عيادة القاهرة – ميدان المحكمة
+                </span>
+
+                <span class="clinic-action">
+                    اضغط هنا لحجز موعد جديد
+                </span>
+            </div>
+
+        </a>
+
+    </main>
+
+    <footer class="footer">
+        نظام حجز ومتابعة مواعيد عيادات أ.د. علي قطب
+    </footer>
+
+</div>
+
 </body>
 </html>
